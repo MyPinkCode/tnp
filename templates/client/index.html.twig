@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste client{% endblock %}
+
+{% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">nom</th>
+      <th scope="col">prenom</th>
+      <th scope="col">adresse</th>
+      <th scope="col">email</th>
+      <th scope="col"><a href="/new">ajouter</a></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for client in clients %}
+    <tr>
+      <th scope="row">{{client.id}}</th>
+      <td>{{ client.nom }}</td>
+      <td>{{ client.prenom }}</td>
+      <td>{{ client.adresse }}</td>
+      <td>{{ client.email }}</td>
+      <td><a href="/new/{{client.id}}">modifier</a>
+      <a href="/delete/{{client.id}}">supprimer</a></td>
+    </tr>
+    {% endfor %}
+   </tbody>
+</table> 
+{% endblock %}

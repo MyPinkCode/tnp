@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des services{% endblock %}
+
+{% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">libelle</th>
+      <th scope="col">description</th>
+      <th scope="col"><a href="/new1">ajouter</a></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for service in services %}
+    <tr>
+      <th scope="row">{{service.id}}</th>
+      <td>{{ service.libelle }}</td>
+      <td>{{ service.description }}</td>
+      <td><a href="/new1/{{service.id}}">modifier</a>
+      <a href="/delete1/{{service.id}}">supprimer</a></td>
+    </tr>
+    {% endfor %}
+   </tbody>
+</table> 
+{% endblock %}

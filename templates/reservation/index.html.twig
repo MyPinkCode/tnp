@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des reservations{% endblock %}
+
+{% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">client</th>
+      <th scope="col">reservation</th>
+      <th scope="col">date</th>
+      <th scope="col">etat</th>
+      <th scope="col"><a href="/new2">ajouter</a></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for reservation in reservations %}
+    <tr>
+      <th scope="row">{{reservation.id}}</th>
+      <td>{{ reservation.idCli }}</td>
+      <td>{{ reservation.idService }}</td>
+      <td>le {{ reservation.date | date('d/m/Y') }} a {{ reservation.date | date('H:i') }}</td>
+        <td>{{ reservation.etat }}</td>
+      <td><a href="/new2/{{reservation.id}}">modifier</a>
+      <a href="/delete2/{{reservation.id}}">supprimer</a></td>
+    </tr>
+    {% endfor %}
+   </tbody>
+</table> 
+{% endblock %}
